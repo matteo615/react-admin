@@ -1,14 +1,24 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
+import GeographyChart from "../../components/GeographyChart";
 import Header from "../../components/Header";
+import { tokens } from "../../theme";
 
-const Dashboard = () => {
-    return (
+const Geography = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
     <Box m="20px">
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Header title='Home Page' subtitle='Welcome to Time Tracker. Make sure to put your time in everyday!' />
-        </Box>
+      <Header title="Geography" subtitle="Basic Geo Chart" />
+
+      <Box
+        height="75vh"
+        border={`1px solid ${colors.grey[100]}`}
+        borderRadius="4px"
+      >
+        <GeographyChart></GeographyChart>
+      </Box>
     </Box>
-    );
+  );
 };
 
-export default Dashboard;
+export default Geography;
